@@ -1,0 +1,949 @@
+[gd_scene load_steps=26 format=2]
+
+[ext_resource path="res://vehicles/train/train.gd" type="Script" id=1]
+[ext_resource path="res://vehicles/train/wheel.png" type="Texture" id=2]
+[ext_resource path="res://vehicles/train/wheel.gd" type="Script" id=3]
+[ext_resource path="res://vehicles/train/iron_bar.png" type="Texture" id=4]
+[ext_resource path="res://vehicles/train/buddy.png" type="Texture" id=5]
+[ext_resource path="res://vehicles/train/buddy.gd" type="Script" id=6]
+[ext_resource path="res://vehicles/train/smoke.png" type="Texture" id=7]
+[ext_resource path="res://vehicles/train/train.png" type="Texture" id=8]
+[ext_resource path="res://vehicles/train/bunny.png" type="Texture" id=9]
+[ext_resource path="res://vehicles/train/steam_power_under.png" type="Texture" id=10]
+[ext_resource path="res://vehicles/train/steam_power_progress.png" type="Texture" id=11]
+[ext_resource path="res://vehicles/train/value_label.gd" type="Script" id=12]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 64, 32 )
+
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 16.0
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 24, 2 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -12, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 0.0
+angular_velocity = 0.0
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.02
+scale_random = 0.01
+color = Color( 0, 0, 0, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Color", "Gravity", "Initial Velocity", "Scale" ]
+
+[sub_resource type="Curve" id=5]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.0488281 ), 0.0, -0.234285, 0, 0, Vector2( 0.997552, 0.998904 ), -0.646366, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=6]
+
+flags = 4
+width = 256
+curve = SubResource( 5 )
+
+[sub_resource type="ParticlesMaterial" id=7]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 12.0
+initial_velocity_random = 0.5
+angular_velocity = -9.90129e-041
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.2
+scale_random = 0.08
+scale_curve = SubResource( 6 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[sub_resource type="Curve" id=8]
+
+min_value = 0.0
+max_value = 1.0
+bake_resolution = 100
+_data = [ Vector2( 0, 0.220703 ), 0.0, -0.234285, 0, 0, Vector2( 0.997552, 0.998904 ), -0.646366, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+
+flags = 4
+width = 256
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=14]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 12.0
+initial_velocity_random = 0.5
+angular_velocity = -9.90129e-041
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.2
+scale_random = 0.08
+scale_curve = SubResource( 9 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[sub_resource type="CurveTexture" id=11]
+
+flags = 4
+width = 256
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=12]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 12.0
+initial_velocity_random = 0.5
+angular_velocity = -9.90129e-041
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.2
+scale_random = 0.08
+scale_curve = SubResource( 11 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Gravity", "Initial Velocity", "Scale", "Spread" ]
+
+[sub_resource type="ParticlesMaterial" id=13]
+
+render_priority = 0
+trail_divisor = 1
+emission_shape = 0
+flag_align_y = false
+flag_rotate_y = false
+flag_disable_z = true
+spread = 45.0
+flatness = 0.0
+gravity = Vector3( 0, -98, 0 )
+initial_velocity = 12.0
+initial_velocity_random = 0.5
+angular_velocity = -9.90129e-041
+angular_velocity_random = 0.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = 0.0
+linear_accel_random = 0.0
+radial_accel = 0.0
+radial_accel_random = 0.0
+tangential_accel = 0.0
+tangential_accel_random = 0.0
+damping = 0.0
+damping_random = 0.0
+angle = 360.0
+angle_random = 1.0
+scale = 0.5
+scale_random = 0.2
+scale_curve = SubResource( 11 )
+color = Color( 1, 1, 1, 1 )
+hue_variation = 0.0
+hue_variation_random = 0.0
+anim_speed = 0.0
+anim_speed_random = 0.0
+anim_offset = 0.0
+anim_offset_random = 0.0
+anim_loop = false
+_sections_unfolded = [ "Angle", "Animation", "Color", "Gravity", "Hue Variation", "Initial Velocity", "Scale", "Spread" ]
+
+[node name="Train" type="RigidBody2D" index="0"]
+
+position = Vector2( 20, 0 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 30.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( -20, -32 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wheels" type="Node2D" parent="." index="1"]
+
+editor/display_folded = true
+position = Vector2( -20, 0 )
+
+[node name="RearWheel" type="RigidBody2D" parent="Wheels" index="0"]
+
+position = Vector2( -42, 0 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 10.0
+friction = 0.7
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = false
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = 5.0
+_sections_unfolded = [ "Angular", "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheels/RearWheel" index="0"]
+
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Wheel" type="Sprite" parent="Wheels/RearWheel" index="1"]
+
+texture = ExtResource( 2 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Wheels/RearWheel" index="2"]
+
+node_a = NodePath("..")
+node_b = NodePath("../../..")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="MidWheel" type="RigidBody2D" parent="Wheels" index="1"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 10.0
+friction = 0.7
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = false
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = 5.0
+_sections_unfolded = [ "Angular", "Pause", "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheels/MidWheel" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="Wheel" type="Sprite" parent="Wheels/MidWheel" index="1"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Wheels/MidWheel" index="2"]
+
+node_a = NodePath("..")
+node_b = NodePath("../../..")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="FrontWheel" type="RigidBody2D" parent="Wheels" index="2"]
+
+position = Vector2( 42, 0 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+mode = 0
+mass = 10.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = false
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = 5.0
+script = ExtResource( 3 )
+_sections_unfolded = [ "Angular", "Transform", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wheels/FrontWheel" index="0"]
+
+shape = SubResource( 2 )
+
+[node name="Wheel" type="Sprite" parent="Wheels/FrontWheel" index="1"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Wheels/FrontWheel" index="2"]
+
+node_a = NodePath("..")
+node_b = NodePath("../../..")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="IronBars" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
+position = Vector2( -20, 0 )
+_sections_unfolded = [ "Transform", "Visibility" ]
+
+[node name="RearIronBar" type="RigidBody2D" parent="IronBars" index="0"]
+
+position = Vector2( -21, -8 )
+input_pickable = false
+collision_layer = 0
+collision_mask = 0
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IronBars/RearIronBar" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="IronBar" type="Sprite" parent="IronBars/RearIronBar" index="1"]
+
+texture = ExtResource( 4 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="IronBars/RearIronBar" index="2"]
+
+position = Vector2( -21, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../../Wheels/RearWheel")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="IronBars/RearIronBar" index="3"]
+
+position = Vector2( 21, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../../Wheels/MidWheel")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="RearIronBar2" type="RigidBody2D" parent="IronBars" index="1"]
+
+position = Vector2( -21, 8 )
+input_pickable = false
+collision_layer = 0
+collision_mask = 0
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IronBars/RearIronBar2" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="IronBar" type="Sprite" parent="IronBars/RearIronBar2" index="1"]
+
+texture = ExtResource( 4 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="IronBars/RearIronBar2" index="2"]
+
+position = Vector2( -21, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../../Wheels/RearWheel")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="IronBars/RearIronBar2" index="3"]
+
+position = Vector2( 21, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../../Wheels/MidWheel")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="FrontIronBar" type="RigidBody2D" parent="IronBars" index="2"]
+
+position = Vector2( 21, -8 )
+input_pickable = false
+collision_layer = 0
+collision_mask = 0
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IronBars/FrontIronBar" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="IronBar" type="Sprite" parent="IronBars/FrontIronBar" index="1"]
+
+texture = ExtResource( 4 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="IronBars/FrontIronBar" index="2"]
+
+position = Vector2( -21, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../../Wheels/MidWheel")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="IronBars/FrontIronBar" index="3"]
+
+position = Vector2( 21, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../../Wheels/FrontWheel")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="FrontIronBar2" type="RigidBody2D" parent="IronBars" index="3"]
+
+position = Vector2( 21, 8 )
+input_pickable = false
+collision_layer = 0
+collision_mask = 0
+mode = 0
+mass = 1.0
+friction = 1.0
+bounce = 0.0
+gravity_scale = 1.0
+custom_integrator = false
+continuous_cd = 0
+contacts_reported = 0
+contact_monitor = false
+sleeping = false
+can_sleep = true
+linear_velocity = Vector2( 0, 0 )
+linear_damp = -1.0
+angular_velocity = 0.0
+angular_damp = -1.0
+_sections_unfolded = [ "Collision", "Visibility" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IronBars/FrontIronBar2" index="0"]
+
+shape = SubResource( 3 )
+
+[node name="IronBar" type="Sprite" parent="IronBars/FrontIronBar2" index="1"]
+
+texture = ExtResource( 4 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="IronBars/FrontIronBar2" index="2"]
+
+position = Vector2( -21, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../../Wheels/MidWheel")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="PinJoint2D2" type="PinJoint2D" parent="IronBars/FrontIronBar2" index="3"]
+
+position = Vector2( 21, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../../Wheels/FrontWheel")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="Buddy" type="Sprite" parent="." index="3"]
+
+editor/display_folded = true
+position = Vector2( -67, -47 )
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+
+[node name="Particles2D" type="Particles2D" parent="Buddy" index="0"]
+
+modulate = Color( 1, 1, 1, 0.470588 )
+position = Vector2( 14.5959, 11.0413 )
+rotation = -2.65519
+emitting = false
+amount = 8
+lifetime = 1.0
+one_shot = true
+preprocess = 0.0
+speed_scale = 2.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = true
+draw_order = 0
+process_material = SubResource( 4 )
+texture = ExtResource( 7 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Process Material", "Textures", "Time", "Visibility" ]
+
+[node name="Train" type="Sprite" parent="." index="4"]
+
+editor/display_folded = true
+position = Vector2( -20, -32 )
+texture = ExtResource( 8 )
+offset = Vector2( 3, -5 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="Control" type="Control" parent="Train" index="0"]
+
+editor/display_folded = true
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 11.0
+margin_top = -19.0
+margin_right = 65.0
+margin_bottom = 13.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = true
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="Train/Control" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Player Name"
+autowrap = true
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+_sections_unfolded = [ "Rect" ]
+
+[node name="Particles2D1" type="Particles2D" parent="Train" index="1"]
+
+position = Vector2( 48, -47 )
+rotation = -1.5708
+emitting = true
+amount = 8
+lifetime = 1.1
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 7 )
+texture = ExtResource( 7 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Particles2D2" type="Particles2D" parent="Train" index="2"]
+
+position = Vector2( 48, -47 )
+rotation = -1.5708
+emitting = false
+amount = 12
+lifetime = 1.2
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 14 )
+texture = ExtResource( 7 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Particles2D3" type="Particles2D" parent="Train" index="3"]
+
+position = Vector2( 48, -47 )
+rotation = -1.5708
+emitting = false
+amount = 20
+lifetime = 1.5
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 12 )
+texture = ExtResource( 7 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="Particles2D4" type="Particles2D" parent="Train" index="4"]
+
+position = Vector2( 48, -47 )
+rotation = -1.5708
+emitting = false
+amount = 25
+lifetime = 2.0
+one_shot = false
+preprocess = 0.0
+speed_scale = 1.0
+explosiveness = 0.0
+randomness = 0.0
+fixed_fps = 0
+fract_delta = true
+visibility_rect = Rect2( -100, -100, 200, 200 )
+local_coords = false
+draw_order = 0
+process_material = SubResource( 13 )
+texture = ExtResource( 9 )
+normal_map = null
+h_frames = 1
+v_frames = 1
+_sections_unfolded = [ "Drawing", "Process Material", "Textures", "Time", "Transform" ]
+
+[node name="PlayerInterface" type="CanvasLayer" parent="." index="5"]
+
+layer = 1
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+
+[node name="BottomPanel" type="HBoxContainer" parent="PlayerInterface" index="0"]
+
+anchor_left = 0.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+custom_constants/separation = 24
+alignment = 0
+_sections_unfolded = [ "Grow Direction", "Margin", "Rect", "custom_constants" ]
+
+[node name="SteamPower" type="VBoxContainer" parent="PlayerInterface/BottomPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 83.0
+margin_bottom = 274.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 0
+_sections_unfolded = [ "Rect" ]
+
+[node name="Label" type="Label" parent="PlayerInterface/BottomPanel/SteamPower" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 83.0
+margin_bottom = 14.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Steam Power"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="CenterContainer" type="CenterContainer" parent="PlayerInterface/BottomPanel/SteamPower" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 18.0
+margin_right = 83.0
+margin_bottom = 274.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 0
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+use_top_left = false
+
+[node name="Progress" type="TextureProgress" parent="PlayerInterface/BottomPanel/SteamPower/CenterContainer" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 25.0
+margin_right = 57.0
+margin_bottom = 256.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+min_value = 0.0
+max_value = 2500.0
+step = 1.0
+page = 0.0
+value = 0.0
+exp_edit = false
+rounded = false
+texture_under = ExtResource( 10 )
+texture_over = null
+texture_progress = ExtResource( 11 )
+fill_mode = 3
+radial_fill_degrees = 360.0
+radial_center_offset = Vector2( 0, 0 )
+nine_patch_stretch = false
+_sections_unfolded = [ "Size Flags", "Textures" ]
+
+[node name="ControlPanel" type="VBoxContainer" parent="PlayerInterface/BottomPanel" index="1"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 107.0
+margin_right = 257.0
+margin_bottom = 274.0
+rect_min_size = Vector2( 150, 0 )
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 1
+alignment = 2
+_sections_unfolded = [ "Rect" ]
+
+[node name="SpeedLabel" type="Label" parent="PlayerInterface/BottomPanel/ControlPanel" index="0"]
+
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 260.0
+margin_right = 150.0
+margin_bottom = 274.0
+rect_pivot_offset = Vector2( 0, 0 )
+rect_clip_content = false
+mouse_filter = 2
+mouse_default_cursor_shape = 0
+size_flags_horizontal = 1
+size_flags_vertical = 4
+text = "Speed: %d mph"
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+script = ExtResource( 12 )
+
+[connection signal="speed_changed" from="." to="PlayerInterface/BottomPanel/ControlPanel/SpeedLabel" method="set_value"]
+
+[connection signal="steam_power_changed" from="." to="PlayerInterface/BottomPanel/SteamPower/CenterContainer/Progress" method="set_value"]
+
+

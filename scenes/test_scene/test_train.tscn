@@ -1,0 +1,67 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://scenes/test_scene/test_train.gd" type="Script" id=1]
+[ext_resource path="res://vehicles/cargo/cargo.tscn" type="PackedScene" id=2]
+[ext_resource path="res://vehicles/train/train.tscn" type="PackedScene" id=3]
+
+[node name="TestTrain" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Cargo1" parent="." index="0" instance=ExtResource( 2 )]
+
+position = Vector2( -268, 0 )
+
+[node name="Cargo2" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -134, 0 )
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Cargo2" index="3"]
+
+position = Vector2( -67, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../Cargo1")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="Train" parent="." index="2" instance=ExtResource( 3 )]
+
+[node name="PinJoint2D" type="PinJoint2D" parent="Train" index="5"]
+
+position = Vector2( -67, 0 )
+node_a = NodePath("..")
+node_b = NodePath("../../Cargo2")
+bias = 0.0
+disable_collision = true
+softness = 0.0
+
+[node name="Camera2D" type="Camera2D" parent="Train" index="6"]
+
+offset = Vector2( 0, -100 )
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = true
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.0
+drag_margin_top = 0.0
+drag_margin_right = 0.0
+drag_margin_bottom = 0.0
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
+_sections_unfolded = [ "Drag Margin", "Smoothing", "Transform" ]
+
+
